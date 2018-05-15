@@ -6,9 +6,12 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using FluentValidation.WebApi;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using WebApiContrib.Formatting.Jsonp;
+using ZeMShoppingCart.Service.Handler;
+using ZeMShoppingCart.Service.HelperClasses.Filters;
 
 namespace ZeMShoppingCart.Service
 {
@@ -16,6 +19,8 @@ namespace ZeMShoppingCart.Service
     {
         public static void Register(HttpConfiguration config)
         {
+            config.Filters.Add(new ValidateModelStateFilter());
+            config.MessageHandlers.Add(new ResponseWrappingHandler());
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
@@ -34,6 +39,7 @@ namespace ZeMShoppingCart.Service
             //config.Formatters.Insert(0, jsonpFormatter);
             EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
+            FluentValidationModelValidatorProvider.Configure(config);
 
         }
     }
