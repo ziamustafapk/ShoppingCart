@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ZeMShoppingCart.ViewModel.Validator
+﻿namespace ZeMShoppingCart.ViewModel.Validator
 {
     public static class ValidationErrorMessage
     {
