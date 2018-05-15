@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using ZeMShoppingCart.BusinessLogic;
 using ZeMShoppingCart.Service.HelperClasses.Filters;
+using ZeMShoppingCart.ViewModel;
 
 namespace ZeMShoppingCart.Service.Controllers
 {
@@ -64,8 +65,24 @@ namespace ZeMShoppingCart.Service.Controllers
 
         // POST: api/Member
         [ValidateModelStateFilter]
-        public void Post([FromBody]string value)
+        [Route("api/Member")]
+        public IHttpActionResult Post([FromBody]MemberViewModel memberViewModel)
         {
+            try
+            {
+                if (memberViewModel == null)
+                {
+                    return BadRequest();
+                }
+               
+
+                
+                return Ok(memberViewModel);
+            }
+            catch (Exception exception)
+            {
+                return InternalServerError(exception);
+            }
         }
 
         // PUT: api/Member/5
