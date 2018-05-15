@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeMShoppingCart.Data", "ZeMShoppingCart.Data\ZeMShoppingCart.Data.csproj", "{7EEAF626-7400-4575-A7A7-CD3DC2CB13A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeMShoppingCart.BusinessLogic", "ZeMShoppingCart.BusinessLogic\ZeMShoppingCart.BusinessLogic.csproj", "{6C0AA77A-9F10-43B3-999B-7EF01D0EE94F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeMShoppingCart.Service", "ZeMShoppingCart.Service\ZeMShoppingCart.Service.csproj", "{C91E0400-DA5F-4A3B-82F8-6B4BB4D155EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeMShoppingCart.ExceptionManager", "ZeMShoppingCart.ExceptionManager\ZeMShoppingCart.ExceptionManager.csproj", "{B6AF7D7A-A33E-4EA9-AC19-BB98021BA8AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeMShoppingCart.Common", "ZeMShoppingCart.Common\ZeMShoppingCart.Common.csproj", "{82732441-7103-4EC1-946E-FE4D4215B023}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeMShoppingCart.Model", "ZeMShoppingCart.Model\ZeMShoppingCart.Model.csproj", "{8C283288-1C5B-40DB-8CC3-B258EF71215B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeMShoppingCart.ViewModel", "ZeMShoppingCart.ViewModel\ZeMShoppingCart.ViewModel.csproj", "{447C8C4F-263C-4AD0-AFF2-DCD3EC91895B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EEAF626-7400-4575-A7A7-CD3DC2CB13A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EEAF626-7400-4575-A7A7-CD3DC2CB13A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EEAF626-7400-4575-A7A7-CD3DC2CB13A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EEAF626-7400-4575-A7A7-CD3DC2CB13A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C0AA77A-9F10-43B3-999B-7EF01D0EE94F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C0AA77A-9F10-43B3-999B-7EF01D0EE94F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C0AA77A-9F10-43B3-999B-7EF01D0EE94F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C0AA77A-9F10-43B3-999B-7EF01D0EE94F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C91E0400-DA5F-4A3B-82F8-6B4BB4D155EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C91E0400-DA5F-4A3B-82F8-6B4BB4D155EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C91E0400-DA5F-4A3B-82F8-6B4BB4D155EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C91E0400-DA5F-4A3B-82F8-6B4BB4D155EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6AF7D7A-A33E-4EA9-AC19-BB98021BA8AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6AF7D7A-A33E-4EA9-AC19-BB98021BA8AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6AF7D7A-A33E-4EA9-AC19-BB98021BA8AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6AF7D7A-A33E-4EA9-AC19-BB98021BA8AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82732441-7103-4EC1-946E-FE4D4215B023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82732441-7103-4EC1-946E-FE4D4215B023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82732441-7103-4EC1-946E-FE4D4215B023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82732441-7103-4EC1-946E-FE4D4215B023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C283288-1C5B-40DB-8CC3-B258EF71215B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C283288-1C5B-40DB-8CC3-B258EF71215B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C283288-1C5B-40DB-8CC3-B258EF71215B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C283288-1C5B-40DB-8CC3-B258EF71215B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{447C8C4F-263C-4AD0-AFF2-DCD3EC91895B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{447C8C4F-263C-4AD0-AFF2-DCD3EC91895B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{447C8C4F-263C-4AD0-AFF2-DCD3EC91895B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{447C8C4F-263C-4AD0-AFF2-DCD3EC91895B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
