@@ -53,6 +53,8 @@
     <Compile Include="ShoppingCartViewModels\AddressViewModel.cs" />
     <Compile Include="ShoppingCartViewModels\EmailViewModel.cs" />
     <Compile Include="ShoppingCartViewModels\MemberViewModel.cs" />
+    <Compile Include="ShoppingCartViewModels\UserSignIn.cs" />
+    <Compile Include="ShoppingCartViewModels\UsersViewModel.cs" />
     <Compile Include="Validator\ResponsePackage.cs" />
     <Compile Include="Validator\ValidationError.cs" />
     <Compile Include="Validator\ValidationErrorMessage.cs" />

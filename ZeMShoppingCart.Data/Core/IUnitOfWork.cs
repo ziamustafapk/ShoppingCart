@@ -4,11 +4,11 @@ namespace ZeMShoppingCart.Data
 {
     public interface IUnitOfWork : IDisposable
     {
-        #region GreeterApp Properties 
+        #region ShoppingCart Properties 
         IMemberRepository Member { get; }
         IAddressRepository Address { get; }
         IEmailRepository Email { get; }
-       
+       IUsersRepository Users { get; }
 
         #endregion
 

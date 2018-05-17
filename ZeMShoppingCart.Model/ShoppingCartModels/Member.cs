@@ -7,13 +7,13 @@ namespace ZeMShoppingCart.Model
     {
         public Member()
         {
-            this.Addresses = new HashSet<Address>();
-            this.Emails = new HashSet<Email>();
+            Addresses = new HashSet<Address>();
+            Emails = new HashSet<Email>();
            
         }
 
-        public string Id { get; set; }
-        public System.DateTime CreatedDate { get; set; }
+        public int Id { get; set; }
+        public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
@@ -25,9 +25,7 @@ namespace ZeMShoppingCart.Model
         
         public virtual ICollection<Email> Emails { get; set; }
        
-      
-      
-
-
     }
+
+
 }

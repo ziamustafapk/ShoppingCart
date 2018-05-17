@@ -53,9 +53,11 @@
     <Compile Include="ShoppingCartConfigurations\AddressConfiguration.cs" />
     <Compile Include="ShoppingCartConfigurations\EmailConfiguration.cs" />
     <Compile Include="ShoppingCartConfigurations\MemberConfiguration.cs" />
+    <Compile Include="ShoppingCartConfigurations\UsersConfiguration.cs" />
     <Compile Include="ShoppingCartModels\Address.cs" />
     <Compile Include="ShoppingCartModels\Email.cs" />
     <Compile Include="ShoppingCartModels\Member.cs" />
+    <Compile Include="ShoppingCartModels\Users.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

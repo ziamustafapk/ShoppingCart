@@ -53,12 +53,14 @@
     <Compile Include="Core\IRepositories\IEmailRepository.cs" />
     <Compile Include="Core\IRepositories\IMemberRepository.cs" />
     <Compile Include="Core\IRepositories\IRepository.cs" />
+    <Compile Include="Core\IRepositories\IUsersRepository.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="DataAccess\ShoppingCartDbContext.cs" />
     <Compile Include="Persistence\Repositories\AddressRepository.cs" />
     <Compile Include="Persistence\Repositories\EmailRepository.cs" />
     <Compile Include="Persistence\Repositories\MemberRepository.cs" />
     <Compile Include="Persistence\Repositories\Repository.cs" />
+    <Compile Include="Persistence\Repositories\UsersRepository.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

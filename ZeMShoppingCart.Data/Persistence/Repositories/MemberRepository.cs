@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using ZeMShoppingCart.ExceptionManager;
 using ZeMShoppingCart.Model;
 
 namespace ZeMShoppingCart.Data
@@ -16,15 +19,13 @@ namespace ZeMShoppingCart.Data
         {
             try
             {
-                var result = Context.Memberes;
+                var result = Context.Memberes.Include(m => m.Emails).ToList();
                 return result;
-
-
             }
-            catch (Exception e)
+            catch (Exception exception)
             {
-                Console.WriteLine(e);
-                throw;
+                DataBaseExceptions.WriteExceptionMessageToFile(exception);
+                return null;
             }
         }
     }

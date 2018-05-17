@@ -285,14 +285,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handler\ResponseWrappingHandler.cs" />
+    <Compile Include="HelperClasses\Filters\BasicAuthenticationAttribute.cs" />
     <Compile Include="HelperClasses\Filters\ValidateModelStateFilter.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -365,6 +364,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -380,6 +380,10 @@
     <ProjectReference Include="..\ZeMShoppingCart.BusinessLogic\ZeMShoppingCart.BusinessLogic.csproj">
       <Project>{6c0aa77a-9f10-43b3-999b-7ef01d0ee94f}</Project>
       <Name>ZeMShoppingCart.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeMShoppingCart.ExceptionManager\ZeMShoppingCart.ExceptionManager.csproj">
+      <Project>{b6af7d7a-a33e-4ea9-ac19-bb98021ba8ae}</Project>
+      <Name>ZeMShoppingCart.ExceptionManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\ZeMShoppingCart.ViewModel\ZeMShoppingCart.ViewModel.csproj">
       <Project>{447c8c4f-263c-4ad0-aff2-dcd3ec91895b}</Project>

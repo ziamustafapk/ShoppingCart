@@ -4,8 +4,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using ZeMShoppingCart.Service.Providers;
 using ZeMShoppingCart.Service.Models;
+using ZeMShoppingCart.Service.Providers;
+
 
 namespace ZeMShoppingCart.Service
 {
@@ -61,5 +62,6 @@ namespace ZeMShoppingCart.Service
             //    ClientSecret = ""
             //});
         }
+
     }
 }

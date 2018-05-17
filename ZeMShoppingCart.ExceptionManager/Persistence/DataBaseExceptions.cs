@@ -36,45 +36,38 @@ namespace ZeMShoppingCart.ExceptionManager
         #region Static Methods
         public static void WriteExceptionMessageToFile(Exception exception)
         {
-            try
-            {
-                //string fileName =  HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["DataBaseExceptionFileName"]);
-                string fileName = System.Web.Hosting.HostingEnvironment.MapPath(ConfigurationManager.AppSettings["DataBaseExceptionFileName"]);
 
-                StringBuilder errorMessages = new StringBuilder();
-                errorMessages.AppendLine("----------------------------------------------" + "\n");
-                errorMessages.AppendLine("DateTime : " + DateTime.Now + "\n");
-                errorMessages.AppendLine("Message : " + exception.Message + "\n");
-                errorMessages.AppendLine("Link : " + exception.HelpLink + "\n");
-                errorMessages.AppendLine("InnerException : " + exception.InnerException + "\n");
-                //errorMessages.AppendLine(HttpContext.Current.User.Identity.Name);
-                errorMessages.AppendLine("StackTrace: " + exception.StackTrace);
-                errorMessages.AppendLine("----------------------------------------------" + "\n");
-
-                if (File.Exists(fileName) && fileName != null)
-                {
-                    File.AppendAllText(fileName, errorMessages.ToString());
-                }
-            }
-            catch (Exception)
-            {
-
-                var fileName = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["DataBaseExceptionFileName"]);
-
+            var fileName = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["DataBaseExceptionFileName"]);
+               
                 var errorMessages = new StringBuilder();
                 errorMessages.AppendLine("----------------------------------------------" + "\n");
                 errorMessages.AppendLine("DateTime : " + DateTime.Now + "\n");
                 errorMessages.AppendLine("Message : " + exception.Message + "\n");
                 errorMessages.AppendLine("Link : " + exception.HelpLink + "\n");
                 errorMessages.AppendLine("InnerException : " + exception.InnerException + "\n");
+                errorMessages.AppendLine(HttpContext.Current.User.Identity.Name);
                 errorMessages.AppendLine("StackTrace: " + exception.StackTrace);
                 errorMessages.AppendLine("----------------------------------------------" + "\n");
 
                 if (File.Exists(fileName) && fileName != null)
                 {
                     File.AppendAllText(fileName, errorMessages.ToString());
-                }
             }
+                else
+                {
+                    if (fileName == null) return;
+                    using (FileStream fs = File.Create(fileName))
+                    {
+                        // Add some text to file
+                        var title = new UTF8Encoding(true).GetBytes("File For Database Exceptions\n");
+                        fs.Write(title, 0, title.Length);
+                        var author = new UTF8Encoding(true).GetBytes("Zia Mustafa\n");
+                        fs.Write(author, 0, author.Length);
+                    }
+                    File.AppendAllText(fileName, errorMessages.ToString());
+                }
+
+
 
 
         }

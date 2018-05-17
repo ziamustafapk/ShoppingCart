@@ -12,21 +12,19 @@
         public const string InvalidLanguage = "Please provide AR for arabic and EN for english";
         #endregion
 
-        public struct ParticipantErrors
+        public struct MemberErrors
         {
-            public const string ParticipantZero = "ParticipantId should not be 0.";
-            public const string ParticipantNumberEmpty = "ParticipantNumber should not be empty.";
-            public const string ParticipantNumberNumeric = "ParticipantNumber should not be numeric.";
-            public const string IdNumberNull = "If IdentityTypeId is set for passport then IdNumber cannot be empty.";
-        }
-
-        public struct DeveloperErrors
-        {
-            public const string DeveloperZero = "DeveloperId should not be 0.";
-            public const string DeveloperName = "DeveloperName should not be empty.";
+            public const string MemberNameLength = "Member Name should be between 0 to 100.";
+            public const string MemberName = "Member Name should not be empty.";
             public const string RequestedLanguage = "RequestedLanguage should be either en or ar.";
         }
-
+        public struct UsersErrors
+        {
+            public const string UserNameLength = "User Name should be between 0 to 100.";
+            public const string UserName = "User Name should not be empty.";
+            public const string PasswordLength = "Password should be between 0 to 100.";
+            public const string Password = "Password should not be empty.";
+        }
         public struct ProjectErrors
         {
             public const string ProjectZero = "ProjectId should not be 0.";
@@ -54,17 +52,6 @@
             public const string DeveloperLandNumberRequired = "DeveloperLandNumber is required.";
         }
 
-        public struct LookupErrors
-        {
-            public const string LookupTypeEmpty = "LookupType cannot be empty";
-            public const string InvalidLookupType = "Not a valid lookup type";
-        }
-
-        public struct RentalIndexErrors
-        {
-            public const string AreaIdEmpty = "AreaId should not be 0.";
-        }
-
         public struct TransactionErrors
         {
             public const string ProcedureIdZero = "ProcedureId cannot be Zero";
@@ -77,16 +64,8 @@
             public const string TransactionYearFormat = "Only 4 digit integers are allowed";
         }
 
-        public struct TrustAccountBankErrors
-        {
-            public const string BankParticipantIdEmpty = "BankParticipantId cannot be Empty";
-            public const string BankParticipantIdZero = "BankParticipantId cannot be Zero";
-        }
+       
 
-        public struct BrokerErrors
-        {
-            public const string RealEstateZero = "Real Esate Id cannot be zero";
-        }
     }
 
 }

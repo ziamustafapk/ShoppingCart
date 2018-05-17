@@ -32,7 +32,7 @@ namespace ZeMShoppingCart.Service
             );
             //var jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
             //config.Formatters.Insert(0, jsonpFormatter);
-            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
             FluentValidationModelValidatorProvider.Configure(config);
 

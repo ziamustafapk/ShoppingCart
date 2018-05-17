@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using AutoMapper;
 using ZeMShoppingCart.Data;
 using ZeMShoppingCart.ExceptionManager;
@@ -12,15 +13,13 @@ namespace ZeMShoppingCart.BusinessLogic
     public class MemberBusinessLogic : IMemberBusinessLogic
     {
         private readonly IUnitOfWork _unitOfWork;
-        //private readonly IMemberRepository _memberRepository;
 
         public MemberBusinessLogic(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-           // _memberRepository = member;
         }
 
-        public MemberViewModel GetMemberById(string memberId)
+        public MemberViewModel GetMemberById(int memberId)
         {
             try
             {
@@ -39,6 +38,7 @@ namespace ZeMShoppingCart.BusinessLogic
         {
             try
             {
+                var result = _unitOfWork.Member.GetAll();
                 return
                    Mapper.Map< IEnumerable<Member>, IEnumerable<MemberViewModel>>
                    (_unitOfWork.Member.GetAll());
@@ -64,9 +64,37 @@ namespace ZeMShoppingCart.BusinessLogic
             }
         }
 
-        public void CreateMember(MemberViewModel memberViewModel)
+        public MemberViewModel CreateMember(MemberViewModel memberViewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var scope = new TransactionScope())
+                {
+                    var member = new Member
+                    {
+                        
+                        CreatedBy = memberViewModel.CreatedBy,
+                        CreatedDate = DateTime.Now,
+                        MemberType = memberViewModel.MemberType,
+                        ModifiedBy = memberViewModel.ModifiedBy,
+                        ModifiedDate = DateTime.Now,
+                        Name = memberViewModel.Name
+                       
+                    };
+                    _unitOfWork.Member.Add(member);
+                    _unitOfWork.Complete();
+
+                    scope.Complete();
+                    return Mapper.Map<Member, MemberViewModel>(member);
+
+                }
+               
+            }
+            catch (Exception exception)
+            {
+                BusinessLogicExceptions.WriteExceptionMessageToFile(exception);
+                return null;
+            }
         }
 
         public bool UpdateMember(int memberId, MemberViewModel memberViewModel)

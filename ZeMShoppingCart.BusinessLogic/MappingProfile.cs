@@ -8,10 +8,11 @@ namespace ZeMShoppingCart.BusinessLogic
     {
        public MappingProfile()
        {
-            CreateMap<Member, MemberViewModel>();
+
+            CreateMap<Member, MemberViewModel>().ForMember(d => d.EmailViewModel, opt => opt.MapFrom(src => src.Emails ));
             CreateMap<Address, AddressViewModel>();
             CreateMap<Email, EmailViewModel>();
-
+           CreateMap<Users, UsersViewModel>();
         }
     }
 }

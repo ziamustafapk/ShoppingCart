@@ -36,17 +36,16 @@ namespace ZeMShoppingCart.ExceptionManager
         #region Static Methods
         public static void WriteExceptionMessageToFile( Exception exception)
         {
-            try
-            {
-                string fileName = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["BusinessLogicExceptionFileName"]);
+          
+                var fileName = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["BusinessLogicExceptionFileName"]);
 
-                StringBuilder errorMessages = new StringBuilder();
+                var errorMessages = new StringBuilder();
                 errorMessages.AppendLine("----------------------------------------------" + "\n");
                 errorMessages.AppendLine("DateTime : " + DateTime.Now + "\n");
                 errorMessages.AppendLine("Message : " + exception.Message + "\n");
                 errorMessages.AppendLine("Link : " + exception.HelpLink + "\n");
                 errorMessages.AppendLine("InnerException : " + exception.InnerException + "\n");
-                //errorMessages.AppendLine("Source : " + exception.Source + "\n");
+                errorMessages.AppendLine("Source : " + exception.Source + "\n");
                 errorMessages.AppendLine("StackTrace: " + exception.StackTrace);
 
                 errorMessages.AppendLine(HttpContext.Current.User.Identity.Name);
@@ -56,26 +55,21 @@ namespace ZeMShoppingCart.ExceptionManager
                 {
                     File.AppendAllText(fileName, errorMessages.ToString());
                 }
-            }
-            catch (Exception)
-            {
-
-                var fileName = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["BusinessLogicExceptionFileName"]);
-
-                var errorMessages = new StringBuilder();
-                errorMessages.AppendLine("----------------------------------------------" + "\n");
-                errorMessages.AppendLine("DateTime : " + DateTime.Now + "\n");
-                errorMessages.AppendLine("Message : " + exception.Message + "\n");
-                errorMessages.AppendLine("Link : " + exception.HelpLink + "\n");
-                errorMessages.AppendLine("InnerException : " + exception.InnerException + "\n");
-                errorMessages.AppendLine("StackTrace: " + exception.StackTrace);
-                errorMessages.AppendLine("----------------------------------------------" + "\n");
-
-                if (File.Exists(fileName) && fileName != null)
+                else
                 {
+                    if (fileName == null) return;
+                    using (FileStream fs = File.Create(fileName))
+                    {
+                        // Add some text to file
+                        Byte[] title = new UTF8Encoding(true).GetBytes("File For Bussiness Logic Exceptions");
+                        fs.Write(title, 0, title.Length);
+                        byte[] author = new UTF8Encoding(true).GetBytes("Zia Mustafa");
+                        fs.Write(author, 0, author.Length);
+                    }
                     File.AppendAllText(fileName, errorMessages.ToString());
-                }
             }
+        
+            
 
         }
         #endregion

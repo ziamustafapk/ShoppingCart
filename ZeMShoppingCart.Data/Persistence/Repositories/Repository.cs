@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using ZeMShoppingCart.ExceptionManager;
 
 namespace ZeMShoppingCart.Data
 {
@@ -31,15 +30,8 @@ namespace ZeMShoppingCart.Data
         {
             // Here we are working with a DbContext, not PlutoContext. So we don't have DbSets 
             // such as Courses or Authors, and we need to use the generic Set() method to access them.
-            try
-            {
+
                 return Context.Set<TEntity>().Find(id);
-            }
-            catch (Exception exceptions)
-            {
-                DataBaseExceptions.WriteExceptionMessageToFile(exceptions);
-                return null;
-            }
 
         }
 
@@ -56,114 +48,58 @@ namespace ZeMShoppingCart.Data
             // 
             // I didn't change it because I wanted the code to look like the videos. But feel free to change
             // this on your own.
-            try
-            {
+
                 return Context.Set<TEntity>().ToList();
-            }
-            catch (Exception exceptions)
-            {
-                DataBaseExceptions.WriteExceptionMessageToFile(exceptions);
-                return null;
-            }
 
         }
 
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            try
-            {
+
                 return Context.Set<TEntity>().Where(predicate);
-            }
-            catch (Exception exceptions)
-            {
-                DataBaseExceptions.WriteExceptionMessageToFile(exceptions);
-                return null;
-            }
 
         }
 
         public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate)
         {
-            try
-            {
+
                 return Context.Set<TEntity>().SingleOrDefault(predicate);
-            }
-            catch (Exception exceptions)
-            {
-                DataBaseExceptions.WriteExceptionMessageToFile(exceptions);
-                return null;
-            }
 
         }
 
         public void Add(TEntity entity)
         {
-            try
-            {
+            
                 Context.Set<TEntity>().Add(entity);
-            }
-            catch (Exception exceptions)
-            {
-                DataBaseExceptions.WriteExceptionMessageToFile(exceptions);
-
-            }
 
         }
 
         public void AddRange(IEnumerable<TEntity> entities)
         {
-            try
-            {
-                Context.Set<TEntity>().AddRange(entities);
-            }
-            catch (Exception exceptions)
-            {
-                DataBaseExceptions.WriteExceptionMessageToFile( exceptions);
 
-            }
+                Context.Set<TEntity>().AddRange(entities);
 
         }
 
         public void Remove(TEntity entity)
         {
-            try
-            {
-                Context.Set<TEntity>().Remove(entity);
-            }
-            catch (Exception exceptions)
-            {
-                DataBaseExceptions.WriteExceptionMessageToFile(exceptions);
 
-            }
+                Context.Set<TEntity>().Remove(entity);
 
         }
 
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
-            try
-            {
-                Context.Set<TEntity>().RemoveRange(entities);
-            }
-            catch (Exception exceptions)
-            {
-                DataBaseExceptions.WriteExceptionMessageToFile(exceptions);
 
-            }
+                Context.Set<TEntity>().RemoveRange(entities);
 
         }
 
         public void Update(TEntity entity)
         {
             //  DbSet.Attach(entity);
-            try
-            {
-                Context.Entry(entity).State = EntityState.Modified;
-            }
-            catch (Exception exceptions)
-            {
-                DataBaseExceptions.WriteExceptionMessageToFile( exceptions);
 
-            }
+                Context.Entry(entity).State = EntityState.Modified;
 
         }
 

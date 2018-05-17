@@ -21,12 +21,12 @@ namespace ZeMShoppingCart.Service.Handler
         private HttpResponseMessage BuildApiResponse(HttpRequestMessage request, HttpResponseMessage response)
         {
             object content;
-            List<string> modelStateErrors = new List<string>();
+            var modelStateErrors = new List<string>();
 
             if (response.TryGetContentValue(out content) && !response.IsSuccessStatusCode)
             {
-                HttpError error = content as HttpError;
-
+                var error = content as HttpError;
+                
                 if (error != null)
                 {
                     content = null; //We have errors, so don't return any content
@@ -45,11 +45,12 @@ namespace ZeMShoppingCart.Service.Handler
                         // Get error messages from ModelState object
                         var modelStateValues = deserializedErrorObject.ModelState.Select(kvp => string.Join(". ", kvp.Value));
 
-                        for (int i = 0; i < modelStateValues.Count(); i++)
+                        for (var i = 0; i < modelStateValues.Count(); i++)
                         {
                             modelStateErrors.Add(modelStateValues.ElementAt(i));
                         }
                     }
+
                 }
             }
 

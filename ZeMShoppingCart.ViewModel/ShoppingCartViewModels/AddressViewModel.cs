@@ -23,7 +23,7 @@ namespace ZeMShoppingCart.ViewModel
         public string FaxNumber { get; set; }
         public string Email { get; set; }
         public string Organization { get; set; }
-        public string MemberId { get; set; }
+        public int MemberId { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public string CreatedBy { get; set; }
